@@ -1,0 +1,15 @@
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\bin\Debug\Snake_N.exe.config
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\bin\Debug\Snake_N.exe
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\bin\Debug\Snake_N.pdb
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\Snake_N.csproj.AssemblyReference.cache
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\MenuWindow.g.cs
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\App.g.cs
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\Snake_N_MarkupCompile.cache
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\Snake_N_MarkupCompile.lref
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\MenuWindow.baml
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\Snake_N.g.resources
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\Snake_N.Properties.Resources.resources
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\Snake_N.csproj.GenerateResource.cache
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\Snake_N.csproj.CoreCompileInputs.cache
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\Snake_N.exe
+C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\Snake_N.pdb
