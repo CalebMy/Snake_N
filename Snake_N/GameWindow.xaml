@@ -1,0 +1,21 @@
+﻿<Window x:Class="Snake_N.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Snake_N"
+        mc:Ignorable="d"
+            Title="Snake_N" Height="300" Width="372">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF42FF00" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock x:Name="Score" Text="0000" Margin="2,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Width="75" Height="15" FontFamily="Impact" Foreground="Black" Background="#FF42FF00" TextAlignment="Center" IsEnabled="False"/>
+            <Canvas x:Name="Pole" HorizontalAlignment="Left" Margin="10,0,0,0" Width="352" Height="264" Background="#FF42FF00" />
+        </StackPanel>
+    </Grid>
+</Window>

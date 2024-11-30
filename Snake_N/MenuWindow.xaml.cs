@@ -32,27 +32,37 @@ namespace Snake_N
 
         private void ContinueGameButton_Click(object sender, RoutedEventArgs e)
         {
-
+            GameWindow window = new GameWindow();
+            window.Show();
+            Close();
         }
 
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
-
+            GameWindow window = new GameWindow();
+            window.Show();
+            Close();
         }
 
         private void LevelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            LevelWindow window = new LevelWindow();
+            window.Show();
+            Close();
         }
 
         private void MazesButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MazesWindow window = new MazesWindow();
+            window.Show();
+            Close();
         }
 
         private void RecordsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            RecordsWindow window = new RecordsWindow();
+            window.Show();
+            Close();
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)

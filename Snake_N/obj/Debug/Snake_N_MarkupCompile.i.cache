@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Yuriy\source\repos\Snake_N\Snake_N\obj\Debug\
+E:\Документы\GitHub\Snake_N\Snake_N\obj\Debug\
 Snake_N
 none
 false
 DEBUG;TRACE
-C:\Users\Yuriy\source\repos\Snake_N\Snake_N\App.xaml
-11916814773
+E:\Документы\GitHub\Snake_N\Snake_N\App.xaml
+5959326787
 
-6-265239857
+101956181093
 13-1310406943
-MenuWindow.xaml;
+GameWindow.xaml;LevelWindow.xaml;MazesWindow.xaml;MenuWindow.xaml;RecordsWindow.xaml;
 
-False
+True
 
