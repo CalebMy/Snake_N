@@ -58,6 +58,7 @@
     <Compile Include="RecordsWindow.xaml.cs">
       <DependentUpon>RecordsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SnakeHighscore.cs" />
     <Page Include="GameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
