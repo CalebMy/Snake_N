@@ -286,7 +286,7 @@ namespace Snake_N
         {
             snakeLength++;
             currentScore++;
-            Score.Text = currentScore.ToString();
+            Score.Text = currentScore.ToString("D4");
             int timerInterval = Math.Max(SnakeSpeedThreshold, (int)timer.Interval.TotalMilliseconds - (currentScore * 2));
             timer.Interval = TimeSpan.FromMilliseconds(timerInterval);
             Pole.Children.Remove(snakeFood);
@@ -423,7 +423,7 @@ namespace Snake_N
                 int lowestHighscore = (SnakeHighscore.HighscoreList.Count > 0 ? SnakeHighscore.HighscoreList.Min(x => x.Score) : 0);
             }
             timer.IsEnabled = false;
-            MessageBox.Show("Oooops, you died!\n\nTo start a new game, just press the Space bar...", "SnakeWPF");
+            MessageBox.Show("КОНЕЦ ИГРЫ!\n\nЧтобы начать новую игру, нажми Пробел", "Snake_N", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
