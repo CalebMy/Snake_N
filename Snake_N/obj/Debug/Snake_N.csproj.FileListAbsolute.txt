@@ -36,3 +36,11 @@ E:\Документы\GitHub\Snake_N\Snake_N\obj\Debug\GameWindow.baml
 E:\Документы\GitHub\Snake_N\Snake_N\obj\Debug\LevelWindow.baml
 E:\Документы\GitHub\Snake_N\Snake_N\obj\Debug\MazesWindow.baml
 E:\Документы\GitHub\Snake_N\Snake_N\obj\Debug\RecordsWindow.baml
+C:\Users\Yuriy\Source\Repos\Snake_N\Snake_N\obj\Debug\GameWindow.g.cs
+C:\Users\Yuriy\Source\Repos\Snake_N\Snake_N\obj\Debug\LevelWindow.g.cs
+C:\Users\Yuriy\Source\Repos\Snake_N\Snake_N\obj\Debug\MazesWindow.g.cs
+C:\Users\Yuriy\Source\Repos\Snake_N\Snake_N\obj\Debug\RecordsWindow.g.cs
+C:\Users\Yuriy\Source\Repos\Snake_N\Snake_N\obj\Debug\GameWindow.baml
+C:\Users\Yuriy\Source\Repos\Snake_N\Snake_N\obj\Debug\LevelWindow.baml
+C:\Users\Yuriy\Source\Repos\Snake_N\Snake_N\obj\Debug\MazesWindow.baml
+C:\Users\Yuriy\Source\Repos\Snake_N\Snake_N\obj\Debug\RecordsWindow.baml

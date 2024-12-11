@@ -32,6 +32,7 @@ namespace Snake_N
 
         private void ContinueGameButton_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("В оригинале через данный элемент меню реализовывалась функция паузы: то есть ты выходил в меню и потом мог вернуться. После перезагрузки устройства прогресс не сохранялся. Данная кнопка находится здесь из уважения к оригиналу", "Snake_N", MessageBoxButton.OK, MessageBoxImage.Information);
             GameWindow window = new GameWindow();
             window.Show();
             Close();
