@@ -6,7 +6,6 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using static Snake_N.GameWindow;
 
 public class SnakePart
 {
@@ -62,23 +61,19 @@ public class SnakePart
     public int currentScore = 0;
 
     public void MoveSnake(DispatcherTimer timer, TextBlock Score, Canvas Pole)
-    {
-        // Удалите последнюю часть змеи, чтобы подготовить новую часть, добавленную ниже  
+    {  
         while (snakeParts.Count >= snakeLength)
         {
             Pole.Children.Remove(snakeParts[0].UiElement);
             snakeParts.RemoveAt(0);
         }
-        // Далее мы добавим к змее новый элемент, которым будет (новая) голова  
-        // Поэтому мы помечаем все существующие детали как элементы, не относящиеся к головке (корпусу), а затем  
-        // мы следим за тем, чтобы они пользовались щеткой для тела
+
         foreach (SnakePart snakePart in snakeParts)
         {
             (snakePart.UiElement as Rectangle).Fill = snakeBodyBrush;
             snakePart.IsHead = false;
         }
 
-        // Определите, в каком направлении развернуть змейку, основываясь на текущем направлении  
         SnakePart snakeHead = snakeParts[snakeParts.Count - 1];
         double nextX = snakeHead.Position.X;
         double nextY = snakeHead.Position.Y;
@@ -97,16 +92,14 @@ public class SnakePart
                 nextY += SnakeSquareSize;
                 break;
         }
-
-        // Теперь добавьте новую головную часть к нашему списку деталей змеи...  
+ 
         snakeParts.Add(new SnakePart()
         {
             Position = new Point(nextX, nextY),
             IsHead = true
-        });
-        //.. а потом пусть это будет нарисовано!  
+        }); 
+
         DrawSnake(Pole);
-        // Мы вернемся к этому позже...  
         DoCollisionCheck(timer, Score, Pole);
     }
     public void EatSnakeFood(DispatcherTimer timer, TextBlock Score, Canvas Pole)
@@ -171,23 +164,20 @@ public class SnakePart
         Canvas.SetTop(snakeFood, foodPosition.Y);
         Canvas.SetLeft(snakeFood, foodPosition.X);
     }
-    public void BtnAddToHighscoreList(object sender, RoutedEventArgs e)
+    public void HighscoreUpdate()
     {
         int newIndex = 0;
-        // Where should the new entry be inserted?
         if ((SnakeHighscore.HighscoreList.Count > 0) && (currentScore < SnakeHighscore.HighscoreList.Max(x => x.Score)))
         {
             SnakeHighscore justAbove = SnakeHighscore.HighscoreList.OrderByDescending(x => x.Score).First(x => x.Score >= currentScore);
             if (justAbove != null)
                 newIndex = SnakeHighscore.HighscoreList.IndexOf(justAbove) + 1;
         }
-        // Create & insert the new entry
         SnakeHighscore.HighscoreList.Insert(newIndex, new SnakeHighscore()
         {
             PlayerName = "bayIgor",
             Score = currentScore
         });
-        // Make sure that the amount of entries does not exceed the maximum
         while (SnakeHighscore.HighscoreList.Count > MaxHighscoreListEntryCount)
             SnakeHighscore.HighscoreList.RemoveAt(MaxHighscoreListEntryCount);
 
@@ -195,10 +185,18 @@ public class SnakePart
     }
     public void EndGame(DispatcherTimer timer)
     {
-        timer.IsEnabled = false;
+        bool isNewHighscore = false;
         if (currentScore > 0)
         {
-            int lowestHighscore = (SnakeHighscore.HighscoreList.Count > 0 ? SnakeHighscore.HighscoreList.Min(x => x.Score) : 0);
+            int lowestHighscore = SnakeHighscore.HighscoreList.Count > 0 ? SnakeHighscore.HighscoreList.Min(x => x.Score) : 0;
+            if ((currentScore > lowestHighscore) || (SnakeHighscore.HighscoreList.Count < MaxHighscoreListEntryCount))
+            {
+                isNewHighscore = true;
+            }
+        }
+        if (isNewHighscore == true)
+        {
+            HighscoreUpdate();
         }
         timer.IsEnabled = false;
         MessageBox.Show("КОНЕЦ ИГРЫ!\n\nЧтобы начать новую игру, нажми Пробел", "Snake_N", MessageBoxButton.OK, MessageBoxImage.Information);
