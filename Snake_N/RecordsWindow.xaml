@@ -13,12 +13,11 @@
             <GradientStop Color="White" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
-
     <Grid>
-        <DataGrid x:Name="RecordsDataGrid" AutoGenerateColumns="False" Margin="5" CanUserAddRows="False" HeadersVisibility="Column" IsReadOnly="True">
+        <DataGrid x:Name="RecordsDataGrid" ItemsSource="{Binding Path=Elements[SnakeHighscore]}" AutoGenerateColumns="False" Margin="5" HeadersVisibility="Column" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Игрок" Binding="{Binding PlayerName}" Width="*"/>
-                <DataGridTextColumn Header="Очки" Binding="{Binding Score}" Width="*"/>
+                <DataGridTextColumn Header="Игрок" Binding="{Binding Path=Element[PlayerName].Value}" Width="*"/>
+                <DataGridTextColumn Header="Очки" Binding="{Binding Path=Element[Score].Value}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
