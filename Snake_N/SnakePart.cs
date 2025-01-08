@@ -47,7 +47,7 @@ public class SnakePart
                 {
                     Width = SnakeSquareSize,
                     Height = SnakeSquareSize,
-                    Fill = (snakePart.IsHead ? snakeHeadBrush : snakeBodyBrush)
+                    Fill = snakePart.IsHead ? snakeHeadBrush : snakeBodyBrush
                 };
                 Pole.Children.Add(snakePart.UiElement);
                 Canvas.SetTop(snakePart.UiElement, snakePart.Position.Y);

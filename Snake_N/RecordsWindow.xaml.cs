@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Threading;
+﻿using System.Windows;
 using System.Xml.Linq;
 
 namespace Snake_N
