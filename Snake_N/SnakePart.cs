@@ -172,25 +172,46 @@ public class SnakePart
         Canvas.SetTop(snakeFood, foodPosition.Y);
         Canvas.SetLeft(snakeFood, foodPosition.X);
     }
-    
+
     public void EndGame(DispatcherTimer timer)
     {
         bool isNewHighscore = false;
         if (currentScore > 0)
         {
-            int lowestHighscore = SnakeHighscore.HighscoreList.Count > 0 ? SnakeHighscore.HighscoreList.Min(x => x.Score) : 0;
-            if ((currentScore > lowestHighscore) || (SnakeHighscore.HighscoreList.Count < SnakeHighscore.MaxHighscoreListEntryCount))
+            if (!SnakeHighscore.HighscoreList.Any() || currentScore > SnakeHighscore.HighscoreList.Min(x => x.Score))
+            {
+                isNewHighscore = true;
+            }
+            else if (SnakeHighscore.HighscoreList.Count < SnakeHighscore.MaxHighscoreListEntryCount)
             {
                 isNewHighscore = true;
             }
         }
-        if (isNewHighscore == true)
+        if (isNewHighscore)
         {
             SnakeHighscore.HighscoreUpdate(currentScore, _name);
         }
         timer.IsEnabled = false;
         MessageBox.Show("КОНЕЦ ИГРЫ!\n\nЧтобы начать новую игру, нажми Пробел", "Snake_N", MessageBoxButton.OK, MessageBoxImage.Information);
     }
+    //public void EndGame(DispatcherTimer timer)
+    //{
+    //    bool isNewHighscore = false;
+    //    if (currentScore > 0)
+    //    {
+    //        int lowestHighscore = SnakeHighscore.HighscoreList.Count > 0 ? SnakeHighscore.HighscoreList.Min(x => x.Score) : 0;
+    //        if ((currentScore > lowestHighscore) || (SnakeHighscore.HighscoreList.Count < SnakeHighscore.MaxHighscoreListEntryCount))
+    //        {
+    //            isNewHighscore = true;
+    //        }
+    //    }
+    //    if (isNewHighscore == true)
+    //    {
+    //        SnakeHighscore.HighscoreUpdate(currentScore, _name);
+    //    }
+    //    timer.IsEnabled = false;
+    //    MessageBox.Show("КОНЕЦ ИГРЫ!\n\nЧтобы начать новую игру, нажми Пробел", "Snake_N", MessageBoxButton.OK, MessageBoxImage.Information);
+    //}
 
 
 }

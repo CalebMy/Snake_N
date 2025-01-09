@@ -15,14 +15,15 @@ namespace Snake_N
         {
             p_name = name;
             InitializeComponent();
-            MessageBox.Show(p_name, "Snake_N", MessageBoxButton.OK, MessageBoxImage.Information);
             timer.Tick += new EventHandler(Timer_Tick);
             StartNewGame();
         }
-        SnakePart Palka = new SnakePart(p_name);
+        SnakePart Palka;
         DispatcherTimer timer = new DispatcherTimer();
         private void StartNewGame()
         {
+            Pole.Children.Clear();
+            Palka = new SnakePart(p_name);
             foreach (SnakePart snakeBodyPart in Palka.snakeParts)
             {
                 if (snakeBodyPart.UiElement != null)
