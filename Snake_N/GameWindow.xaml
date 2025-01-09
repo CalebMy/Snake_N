@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Snake_N" xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         mc:Ignorable="d"
-            Title="Snake_N" Height="1000" Width="1140" WindowStartupLocation="CenterScreen"
+            Title="Snake_N" Height="970" Width="1140" WindowStartupLocation="CenterScreen"
         KeyUp="Window_KeyUp">
     <Window.Resources>
         <CollectionViewSource Source="{Binding ElementName=window, Path=HighscoreList}" x:Key="HighScoreListViewSource">

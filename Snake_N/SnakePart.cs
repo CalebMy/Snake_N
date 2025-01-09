@@ -34,7 +34,15 @@ public class SnakePart
     public UIElement snakeFood = null;
     public SolidColorBrush foodBrush = Brushes.Red;
 
-    const int MaxHighscoreListEntryCount = 10;
+    private string _name;
+    public SnakePart()
+    {
+
+    }
+    public SnakePart(string name)
+    {
+        _name = name;
+    }
 
 
     public void DrawSnake(Canvas Pole)
@@ -164,39 +172,21 @@ public class SnakePart
         Canvas.SetTop(snakeFood, foodPosition.Y);
         Canvas.SetLeft(snakeFood, foodPosition.X);
     }
-    public void HighscoreUpdate()
-    {
-        int newIndex = 0;
-        if ((SnakeHighscore.HighscoreList.Count > 0) && (currentScore < SnakeHighscore.HighscoreList.Max(x => x.Score)))
-        {
-            SnakeHighscore justAbove = SnakeHighscore.HighscoreList.OrderByDescending(x => x.Score).First(x => x.Score >= currentScore);
-            if (justAbove != null)
-                newIndex = SnakeHighscore.HighscoreList.IndexOf(justAbove) + 1;
-        }
-        SnakeHighscore.HighscoreList.Insert(newIndex, new SnakeHighscore()
-        {
-            PlayerName = "bayIgor",
-            Score = currentScore
-        });
-        while (SnakeHighscore.HighscoreList.Count > MaxHighscoreListEntryCount)
-            SnakeHighscore.HighscoreList.RemoveAt(MaxHighscoreListEntryCount);
-
-        SnakeHighscore.SaveHighscoreList();
-    }
+    
     public void EndGame(DispatcherTimer timer)
     {
         bool isNewHighscore = false;
         if (currentScore > 0)
         {
             int lowestHighscore = SnakeHighscore.HighscoreList.Count > 0 ? SnakeHighscore.HighscoreList.Min(x => x.Score) : 0;
-            if ((currentScore > lowestHighscore) || (SnakeHighscore.HighscoreList.Count < MaxHighscoreListEntryCount))
+            if ((currentScore > lowestHighscore) || (SnakeHighscore.HighscoreList.Count < SnakeHighscore.MaxHighscoreListEntryCount))
             {
                 isNewHighscore = true;
             }
         }
         if (isNewHighscore == true)
         {
-            HighscoreUpdate();
+            SnakeHighscore.HighscoreUpdate(currentScore, _name);
         }
         timer.IsEnabled = false;
         MessageBox.Show("КОНЕЦ ИГРЫ!\n\nЧтобы начать новую игру, нажми Пробел", "Snake_N", MessageBoxButton.OK, MessageBoxImage.Information);

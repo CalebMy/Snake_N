@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,25 +23,29 @@ namespace Snake_N
     /// </summary>
     public partial class MenuWindow : Window
     {
+        public string PlayerName;
         public MenuWindow()
         {
             SplashScreen splash = new SplashScreen("Reso/logo.png");
             splash.Show(true);
             Thread.Sleep(1000);
-            InitializeComponent(); 
+            InitializeComponent();
+            PlayerName = Player.Text;
         }
 
         private void ContinueGameButton_Click(object sender, RoutedEventArgs e)
         {
+            PlayerName = Player.Text;
             MessageBox.Show("В оригинале через данный элемент меню реализовывалась функция паузы: то есть ты выходил в меню и потом мог вернуться. После перезагрузки устройства прогресс не сохранялся. Данная кнопка находится здесь из уважения к оригиналу", "Snake_N", MessageBoxButton.OK, MessageBoxImage.Information);
-            GameWindow window = new GameWindow();
+            GameWindow window = new GameWindow(PlayerName);
             window.Show();
             Close();
         }
 
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow window = new GameWindow();
+            PlayerName = Player.Text;
+            GameWindow window = new GameWindow(PlayerName);
             window.Show();
             Close();
         }

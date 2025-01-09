@@ -9,6 +9,7 @@ public class SnakeHighscore : ISnakeHighscore
     public int Score { get; set; }
     public static ObservableCollection<SnakeHighscore> HighscoreList
     {get; set; } = new ObservableCollection<SnakeHighscore>();
+    public const int MaxHighscoreListEntryCount = 10;
     public static void LoadHighscoreList()
     {
         if (File.Exists("snake_highscorelist.xml"))
@@ -30,5 +31,24 @@ public class SnakeHighscore : ISnakeHighscore
         {
             serializer.Serialize(writer, HighscoreList);
         }
+    }
+    public static void HighscoreUpdate(int currentScore, string _name)
+    {
+        int newIndex = 0;
+        if ((HighscoreList.Count > 0) && (currentScore < HighscoreList.Max(x => x.Score)))
+        {
+            SnakeHighscore justAbove = HighscoreList.OrderByDescending(x => x.Score).First(x => x.Score >= currentScore);
+            if (justAbove != null)
+                newIndex = HighscoreList.IndexOf(justAbove) + 1;
+        }
+        HighscoreList.Insert(newIndex, new SnakeHighscore()
+        {
+            PlayerName = _name,
+            Score = currentScore
+        });
+        while (HighscoreList.Count > MaxHighscoreListEntryCount)
+            HighscoreList.RemoveAt(MaxHighscoreListEntryCount);
+
+        SaveHighscoreList();
     }
 }

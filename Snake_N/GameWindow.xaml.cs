@@ -10,7 +10,16 @@ namespace Snake_N
     /// </summary>
     public partial class GameWindow : Window
     {
-        SnakePart Palka = new SnakePart();
+        public static string p_name;
+        public GameWindow(string name)
+        {
+            p_name = name;
+            InitializeComponent();
+            MessageBox.Show(p_name, "Snake_N", MessageBoxButton.OK, MessageBoxImage.Information);
+            timer.Tick += new EventHandler(Timer_Tick);
+            StartNewGame();
+        }
+        SnakePart Palka = new SnakePart(p_name);
         DispatcherTimer timer = new DispatcherTimer();
         private void StartNewGame()
         {
@@ -28,13 +37,13 @@ namespace Snake_N
             Palka.snakeLength = SnakePart.SnakeStartLength;
             Palka.snakeDirection = SnakePart.SnakeDirection.Right;
             Palka.snakeParts.Add(new SnakePart() { Position = new Point(SnakePart.SnakeSquareSize * 5, SnakePart.SnakeSquareSize * 5) });
-            timer.Interval = TimeSpan.FromMilliseconds((int)SnakePart.SnakeStartSpeed.One);
+            timer.Interval = TimeSpan.FromMilliseconds((int)SnakePart.SnakeStartSpeed.Five);
             
             Palka.DrawSnake(Pole);
             Palka.DrawSnakeFood(Pole);
      
             timer.IsEnabled = true;
-
+            
         }
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
@@ -118,15 +127,14 @@ namespace Snake_N
                 Palka.MoveSnake(timer, Score, Pole);
         }
 
-        public GameWindow()
-        {
-            InitializeComponent();
-            timer.Tick += new EventHandler(timer_Tick);
-            StartNewGame();
-            //SnakeHighscore.LoadHighscoreList();
-        }
+        //public GameWindow()
+        //{
+        //    InitializeComponent();
+        //    timer.Tick += new EventHandler(timer_Tick);
+        //    StartNewGame();
+        //}
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
             Palka.MoveSnake(timer, Score, Pole);
         }
